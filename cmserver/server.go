@@ -12,7 +12,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/jcelliott/lumber"
-	"github.com/schollz/closestmatch"
+	"github.com/maxmcd/closestmatch"
 	"gopkg.in/urfave/cli.v1"
 )
 

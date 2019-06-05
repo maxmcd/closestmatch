@@ -121,7 +121,8 @@ type result struct {
 	m map[string]int
 }
 
-func (cm *ClosestMatch) match(searchWord string) map[string]int {
+// Match returns a mapping...
+func (cm *ClosestMatch) Match(searchWord string) map[string]int {
 	searchSubstrings := cm.splitWord(searchWord)
 	searchSubstringsLen := len(searchSubstrings)
 
@@ -155,7 +156,7 @@ func (cm *ClosestMatch) match(searchWord string) map[string]int {
 
 // Closest searches for the `searchWord` and returns the closest match
 func (cm *ClosestMatch) Closest(searchWord string) string {
-	for _, pair := range rankByWordCount(cm.match(searchWord)) {
+	for _, pair := range rankByWordCount(cm.Match(searchWord)) {
 		return pair.Key
 	}
 	return ""
@@ -164,7 +165,7 @@ func (cm *ClosestMatch) Closest(searchWord string) string {
 // ClosestN searches for the `searchWord` and returns the n closests matches
 func (cm *ClosestMatch) ClosestN(searchWord string, max int) []string {
 	matches := make([]string, 0, max)
-	for i, pair := range rankByWordCount(cm.match(searchWord)) {
+	for i, pair := range rankByWordCount(cm.Match(searchWord)) {
 		if i >= max {
 			break
 		}

@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/schollz/closestmatch/test"
+	"github.com/maxmcd/closestmatch/test"
 )
 
 func BenchmarkNew(b *testing.B) {
